@@ -9,10 +9,14 @@ import javax.servlet.http.*;
 public class UserInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection users = null;
 		try {
-			request.setCharacterEncoding("utf-8");
 			users = DBConnection.openConnection();
 			String id = request.getParameter("insertId");
 			String name = request.getParameter("insertName");
